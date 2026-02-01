@@ -33,6 +33,7 @@ nav{
   max-width:1200px;margin:auto;
   display:flex;justify-content:space-between;align-items:center;
   padding:15px 20px;
+  flex-wrap:wrap;
 }
 /* SHINING KDD STUDIO TEXT */
 nav h1{
@@ -41,14 +42,12 @@ nav h1{
   -webkit-background-clip:text;
   color:transparent;
   animation:shineText 3s linear infinite;
+  background-size:200% auto;
 }
 @keyframes shineText{
   0%{background-position:0%;}
   50%{background-position:100%;}
   100%{background-position:0%;}
-}
-nav h1{
-  background-size:200% auto;
 }
 
 /* NAVIGATION BUTTONS DESIGN */
@@ -56,6 +55,8 @@ nav ul{
   list-style:none;
   display:flex;
   gap:20px;
+  flex-wrap:wrap;
+  margin-top:10px;
 }
 nav ul li{
   position:relative;
@@ -101,6 +102,7 @@ section{
   min-height:100vh;
   padding:140px 20px 80px;
   max-width:1200px;margin:auto;
+  width:100%;
 }
 
 /* HERO */
@@ -119,6 +121,9 @@ section{
   padding:16px;
   border-radius:var(--radius);
   background:linear-gradient(145deg,#0b1220,#020617);
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 .hero-img{
   position:relative;
@@ -126,8 +131,14 @@ section{
   overflow:hidden;
   animation:float 6s infinite,pulse 4s infinite;
   box-shadow:0 0 60px rgba(0,229,255,.7);
+  width:100%;
 }
-.hero-img img{width:100%;display:block;object-fit:cover;}
+.hero-img img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:cover;
+}
 .hero-img::before{
   content:"";
   position:absolute;top:0;left:-150%;
@@ -166,6 +177,7 @@ section{
 }
 .service-img img{
   width:100%;
+  height:auto;
   display:block;
   object-fit:cover;
 }
@@ -223,14 +235,29 @@ footer{
 @keyframes pulse{50%{box-shadow:0 0 120px rgba(255,47,208,.9)}}
 
 /* RESPONSIVE */
-@media(max-width:900px){
-  .hero{grid-template-columns:1fr;gap:30px;}
-  .hero h2{font-size:36px;}
+@media(max-width:1024px){
+  .hero{grid-template-columns:1fr 1fr;gap:30px;}
+  .hero h2{font-size:38px;}
   section{padding:120px 15px 80px;}
 }
-@media(max-width:500px){
-  nav ul{flex-direction:column;gap:15px;margin-top:10px;}
+
+@media(max-width:768px){
+  nav{flex-direction:column;align-items:flex-start;}
+  nav ul{flex-direction:column;gap:10px;margin-top:10px;width:100%;}
+  .hero{grid-template-columns:1fr;gap:30px;}
+  .hero h2{font-size:32px;text-align:center;}
+  .hero p{text-align:center;}
+  .hero-card{margin:auto;width:100%;}
+  .service-img{margin:30px 0;}
+  .card h3{font-size:16px;}
+}
+
+@media(max-width:480px){
   .btn{padding:10px 20px;font-size:14px;}
+  .hero h2{font-size:28px;}
+  .hero span{font-size:28px;}
+  .card i{font-size:36px;}
+  section{padding:100px 10px 60px;}
 }
 </style>
 </head>
@@ -307,8 +334,8 @@ footer{
 <div class="service-img"><img src="tiktok post.png"></div>
 <center><h3>Our Packages</h3>
 <div class="price">Rs.25,000.00 Onward</div>
-<br><button class="btn" onclick="addToCart('TikTok Promotion',25000)">ADD TO CART</button>
-</section></center>
+<br><button class="btn" onclick="addToCart('TikTok Promotion',25000)">ADD TO CART</button></center>
+</section>
 
 <!-- GRAPHIC -->
 <section id="servicegraphic" class="page">
@@ -316,8 +343,8 @@ footer{
 <div class="service-img"><img src="NEW MARKETING POST.png"></div>
 <center><h3>Our Packages</h3>
 <div class="price">Rs.15,000.00 Onward</div>
-<br><button class="btn" onclick="addToCart('Graphic Designing',15000)">ADD TO CART</button>
-</section></center>
+<br><button class="btn" onclick="addToCart('Graphic Designing',15000)">ADD TO CART</button></center>
+</section>
 
 <!-- ABOUT -->
 <section id="about" class="page">
@@ -392,4 +419,3 @@ function sendWhatsApp(){
 
 </body>
 </html>
-
